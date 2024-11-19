@@ -110,3 +110,40 @@ class Order {
         }
     }
 }
+class Customer {
+    public String customerId;
+    public String name;
+    public String email;
+    public String phone;
+    private List<Order> orders;
+
+    public Customer(String customerId, String name, String email, String phone) {
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.orders = new ArrayList<>();
+    }
+
+    public void placeOrder(Order order) {
+        orders.add(order);
+        System.out.println("Order placed successfully!");
+        System.out.println("Order ID: " + order.orderId);
+    }
+
+    public void viewOrders() {
+        System.out.println("Orders placed by customer " + name + ":");
+        if (orders.isEmpty()) {
+            System.out.println("No orders found.");
+        } else {
+            for (Order order : orders) {
+                order.printOrderDetails();
+                System.out.println();
+            }
+        }
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+}
