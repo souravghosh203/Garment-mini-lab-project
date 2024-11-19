@@ -1,5 +1,5 @@
 
-//package javaapplication7;
+package javaapplication7;
 
 
 import java.util.ArrayList;
@@ -175,5 +175,29 @@ class Inventory {
             }
         }
         return null;
+    }
+}
+public class JavaApplication7 {
+    public static void main(String[] args) {
+
+        Garment garment1 = new Garment("G001", "Shirt", "Cotton shirt", "M", "Blue", 35.99, 10);
+        Garment garment2 = new Garment("G002", "Pants", "jeans", "L", "Black", 55.99, 5);
+        Garment garment3 = new Garment("G003", "Panjabi", "Cotton", "L", "White", 45.99, 6);
+
+        Inventory inventory = new Inventory();
+        inventory.addGarment(garment1);
+        inventory.addGarment(garment2);
+        inventory.addGarment(garment3);
+
+        Order order1 = new Order("O001", new Date());
+        order1.addGarment(garment1);
+        order1.addGarment(garment2);
+        order1.addGarment(garment3);
+        order1.calculateTotalAmount();
+
+        Customer customer = new Customer("C001", "John Doe", "john@example.com", "123-456-7890");
+        customer.placeOrder(order1);
+
+        customer.viewOrders();
     }
 }
