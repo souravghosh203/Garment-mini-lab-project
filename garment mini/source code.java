@@ -15,7 +15,7 @@ class Garment {
     public String color;
     public double price;
     public int stockQuantity;
-    
+
 
     Garment(String id, String name, String description, String size, String color, double price,
             int stockQuantity) {
@@ -35,5 +35,22 @@ class Garment {
     double calculateDiscountPrice(double discountPercentage) {
         double discount = price * (discountPercentage / 100);
         return price - discount;
+    }
+}
+class Fabric {
+    public String id;
+    public String type;
+    public String color;
+    public double pricePerMeter;
+
+    public Fabric(String id, String type, String color, double pricePerMeter) {
+        this.id = id;
+        this.type = type;
+        this.color = color;
+        this.pricePerMeter = pricePerMeter;
+    }
+
+    public double calculateCost(double meters) {
+        return pricePerMeter * meters;
     }
 }
