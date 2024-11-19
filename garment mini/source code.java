@@ -3,7 +3,7 @@
 
 
 import java.util.ArrayList;
-//mport java.util.Date;
+import java.util.Date;
 import java.util.List;
 
 
@@ -73,5 +73,40 @@ class Supplier {
 
     public List<Fabric> getSuppliedFabrics() {
         return suppliedFabrics;
+    }
+}
+class Order {
+    public String orderId;
+    public Date orderDate;
+    public double totalAmount;
+    public List<Garment> garments;
+
+    public Order(String orderId, Date orderDate) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
+        this.totalAmount = 0.0;
+        this.garments = new ArrayList<>();
+    }
+
+    public void addGarment(Garment garment) {
+        garments.add(garment);
+    }
+
+    public double calculateTotalAmount() {
+        totalAmount = 0;
+        for (Garment garment : garments) {
+            totalAmount += garment.price;
+        }
+        return totalAmount;
+    }
+
+    public void printOrderDetails() {
+        System.out.println("Order ID: " + orderId);
+        System.out.println("Order Date: " + orderDate);
+        System.out.println("Total Amount: " + totalAmount);
+        System.out.println("Garments:");
+        for (Garment garment : garments) {
+            System.out.println("- " + garment.name + ": $" + garment.price);
+        }
     }
 }
