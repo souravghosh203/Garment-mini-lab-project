@@ -147,3 +147,33 @@ class Customer {
         return orders;
     }
 }
+class Inventory {
+    public List<Garment> garments;
+
+    public Inventory() {
+        this.garments = new ArrayList<>();
+    }
+
+    public void addGarment(Garment garment) {
+        garments.add(garment);
+    }
+
+    public void removeGarment(String id) {
+        Garment garmentToRemove = findGarment(id);
+        if (garmentToRemove != null) {
+            garments.remove(garmentToRemove);
+            System.out.println("Garment removed successfully!");
+        } else {
+            System.out.println("Garment not found.");
+        }
+    }
+
+    public Garment findGarment(String id) {
+        for (Garment garment : garments) {
+            if (garment.id.equals(id)) {
+                return garment;
+            }
+        }
+        return null;
+    }
+}
