@@ -2,9 +2,9 @@
 //package javaapplication7;
 
 
-//import java.util.ArrayList;
-//import java.util.Date;
-//import java.util.List;
+import java.util.ArrayList;
+//mport java.util.Date;
+import java.util.List;
 
 
 class Garment {
@@ -52,5 +52,26 @@ class Fabric {
 
     public double calculateCost(double meters) {
         return pricePerMeter * meters;
+    }
+}
+class Supplier {
+    public String id;
+    public String name;
+    public String contactInfo;
+    private List<Fabric> suppliedFabrics;
+
+    public Supplier(String id, String name, String contactInfo) {
+        this.id = id;
+        this.name = name;
+        this.contactInfo = contactInfo;
+        this.suppliedFabrics = new ArrayList<>();
+    }
+
+    public void addFabric(Fabric fabric) {
+        suppliedFabrics.add(fabric);
+    }
+
+    public List<Fabric> getSuppliedFabrics() {
+        return suppliedFabrics;
     }
 }
